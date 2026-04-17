@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استبيان</title>
+
+<style>
+body{
+background: linear-gradient(#1a1a1a,#000);
+color:white;
+font-family:sans-serif;
+padding:15px;
+}
+.container{
+max-width:500px;
+margin:auto;
+background:#111;
+padding:20px;
+border-radius:15px;
+}
+h1{color:#ffa500;text-align:center}
+h3{text-align:center;color:#ccc}
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+font-size:16px;
+}
+button{
+background:#ff8c00;
+color:white;
+padding:15px;
+border:none;
+border-radius:12px;
+width:100%;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h3>المديرية: لواءي الطيبة والوسطية</h3>
+<h1>استبيان ملتقى الطلاب البرلماني</h1>
+
+<form id="form">
+
+<label>اسم المدرسة</label>
+<input id="school" required>
+
+<label>ما مدى رضا أولياء الأمور عن مشاركة ابنائهم في البرلمان الطلابي؟</label>
+<select id="q1">
+<option>عادي جداً</option>
+<option>عادي</option>
+<option>متوسط</option>
+<option>ضعيف</option>
+</select>
+
+<label>ما مدى رضا الطلبة مشاركتهم في البرلمان الطلابي؟</label>
+<select id="q2">
+<option>عادي جداً</option>
+<option>عادي</option>
+<option>متوسط</option>
+<option>ضعيف</option>
+</select>
+
+<label>ما مدى رضاك عن ملتقى البرلمان الطلابي؟</label>
+<select id="q3">
+<option>عالي جداً</option>
+<option>عالي</option>
+<option>متوسط</option>
+<option>ضعيف</option>
+</select>
+
+<label>اقتراحات وتحسينات</label>
+<textarea id="notes"></textarea>
+
+<button type="submit">إرسال النموذج</button>
+
+</form>
+</div>
+
+<script>
+document.getElementById("form").onsubmit = function(e){
+e.preventDefault();
+
+let data = {
+school: school.value,
+q1: q1.value,
+q2: q2.value,
+q3: q3.value,
+notes: notes.value
+};
+
+let all = JSON.parse(localStorage.getItem("data")||"[]");
+all.push(data);
+localStorage.setItem("data",JSON.stringify(all));
+
+alert("تم الإرسال");
+};
+</script>
+
+</body>
+</html>
