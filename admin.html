@@ -3,30 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الإدارة</title>
+<style>
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+    padding:20px;
+}
+.box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+}
+</style>
 </head>
+<body>
 
-<body style="background:#000;color:#fff;padding:20px">
-
-<h2>النتائج</h2>
-<div id="data"></div>
-
-<script>
-if(localStorage.getItem("auth")!=="1"){location="login.html";}
-
-let d = JSON.parse(localStorage.getItem("data")||"[]");
-let div = document.getElementById("data");
-
-d.forEach(x=>{
-div.innerHTML += `
-<hr>
-<p>المدرسة: ${x.school}</p>
-<p>أولياء الأمور: ${x.q1}</p>
-<p>الطلبة: ${x.q2}</p>
-<p>الرضا العام: ${x.q3}</p>
-<p>ملاحظات: ${x.notes}</p>
-`;
-});
-</script>
+<div class="box">
+    <h2>لوحة الإدارة</h2>
+    <p>هنا تظهر بيانات الطلاب بعد الربط مع قاعدة البيانات.</p>
+    <p>حالياً هذه الصفحة مخصصة للإدارة فقط.</p>
+</div>
 
 </body>
 </html>
